@@ -3,3 +3,9 @@ This plugin links your installation to the WordPress Cloud Management Console an
 
 View in the Admin panel:
 ![View](https://raw.githubusercontent.com/bitnami-labs/wp-cloud-mgmt-console-plugin/master/images/demo.png)
+
+How to install the plugin:
+
+  - Download the zip from the [release page](https://github.com/bitnami-labs/wp-cloud-mgmt-console-plugin/releases).
+  - Upload the zip using the WordPress plugin installation panel
+  - Activate the plugin
