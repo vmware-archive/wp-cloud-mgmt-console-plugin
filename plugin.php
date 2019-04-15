@@ -8,36 +8,53 @@ Plugin Name: Bitnami Production Console Helper
 Plugin URI: https://github.com/bitnami-labs/wp-cloud-mgmt-console-plugin
 Description: This plugin adds a link in the WordPress Admin Interface to the Bitnami Production Console
 Author: Bitnami
-Version: 1.0
+Version: 1.1
 Author URI: https://bitnami.com/
 */
 
-// This echoes the message, we'll place it later
-function bitnami_console() {
-	echo "<p id='bitnami-production'>Go to the <a href='https://bitnami.com'>Bitnami Production Console</a> for Advanced Operations</p>";
+add_action('admin_bar_menu', 'bitnami_prod_add_bar', 25);
+function bitnami_prod_add_bar($admin_bar){
+    $admin_bar->add_menu( array(
+        'id'    => 'bitnami-prod-console',
+        'title' => 'WordPress Cloud Management Console',
+        'href'  => 'https://bitnami.com/wordpress-management-console',
+        'meta'  => array(
+            'title' => __('WordPress Cloud Management Console'),            
+        ),
+    ));
+    $admin_bar->add_menu( array(
+        'id'    => 'early-access',
+        'parent' => 'bitnami-prod-console',
+        'title' => 'Request Early Access',
+        'href'  => 'https://bitnami.com/wordpress-management-console',
+        'meta'  => array(
+            'title' => __('Request Early Access'),
+            'target' => '_blank',
+            'class' => 'bitnami_prod_class'
+        ),
+    ));
+    $admin_bar->add_menu( array(
+        'id'    => 'bitnami-support',
+        'parent' => 'bitnami-prod-console',
+        'title' => 'Support',
+        'href'  => 'https://helpdesk.bitnami.com/',
+        'meta'  => array(
+            'title' => __('Support'),
+            'target' => '_blank',
+            'class' => 'bitnami_prod_class'
+        ),
+    ));
+    $admin_bar->add_menu( array(
+        'id'    => 'bitnami-docs',
+        'parent' => 'bitnami-prod-console',
+        'title' => 'Documentation',
+        'href'  => 'https://docs.bitnami.com',
+        'meta'  => array(
+            'title' => __('Documentation'),
+            'target' => '_blank',
+            'class' => 'bitnami_prod_class'
+        ),
+    ));
 }
-
-// Now we set that function up to execute when the admin_notices action is called
-add_action( 'admin_notices', 'bitnami_console' );
-
-// We need some CSS to position the paragraph
-function bitnami_console_css() {
-	// This makes sure that the positioning is also good for right-to-left languages
-	$x = is_rtl() ? 'left' : 'right';
-
-	echo "
-	<style type='text/css'>
-	#bitnami-production {
-		float: $x;
-		padding-$x: 15px;
-		padding-top: 5px;		
-		margin: 0;
-		font-size: 11px;
-	}
-	</style>
-	";
-}
-
-add_action( 'admin_head', 'bitnami_console_css' );
 
 ?>
