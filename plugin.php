@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Bitnami_Production_Console_Banner
- * @version 1.0
+ * @version 1.1
  */
 /*
 Plugin Name: Bitnami Production Console Helper
