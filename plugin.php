@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Bitnami_Production_Console_Banner
- * @version 1.1
+ * @version 1.2
  */
 /*
 Plugin Name: Bitnami Production Console Helper
 Plugin URI: https://github.com/bitnami-labs/wp-cloud-mgmt-console-plugin
-Description: This plugin adds a link in the WordPress Admin Interface to the Bitnami Production Console
+Description: Description: Links your WordPress installation to the WordPress Cloud Management Console and Support. This Console provides a great user experience for launching and managing all your production WordPress deployments.
 Author: Bitnami
-Version: 1.1
+Version: 1.2
 Author URI: https://bitnami.com/
 */
 
